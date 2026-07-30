@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do anfitrião — Commit Places</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">commit places</a>
+      <nav id="nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 style="margin:30px 0 6px">Painel do anfitrião</h1>
+
+    <h2>Solicitações de reserva</h2>
+    <div id="solicitacoes"><p class="empty">Carregando...</p></div>
+
+    <div class="toolbar">
+      <h2>Meus imóveis</h2>
+      <button class="btn" id="novo">+ Cadastrar imóvel</button>
+    </div>
+    <div id="imoveis"><p class="empty">Carregando...</p></div>
+
+    <!-- Formulário de cadastro/edição -->
+    <div id="form-wrap" class="hidden" style="max-width:640px;margin:20px 0 60px">
+      <div class="box" style="position:static">
+        <h2 id="form-titulo" style="margin-top:0">Novo imóvel</h2>
+        <form id="form-imovel">
+          <input type="hidden" id="i-id">
+          <div class="field"><label for="i-title">Título</label>
+            <input type="text" id="i-title" required></div>
+          <div class="field"><label for="i-description">Descrição</label>
+            <textarea id="i-description" rows="3"></textarea></div>
+          <div class="row">
+            <div class="field"><label for="i-city">Cidade</label>
+              <input type="text" id="i-city" required></div>
+            <div class="field"><label for="i-address">Endereço</label>
+              <input type="text" id="i-address" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="i-price">Preço por diária (R$)</label>
+              <input type="number" step="0.01" id="i-price" required></div>
+            <div class="field"><label for="i-guests">Máx. hóspedes</label>
+              <input type="number" id="i-guests" min="1" value="2" required></div>
+          </div>
+          <div class="field"><label for="i-amenities">Comodidades (separadas por vírgula)</label>
+            <input type="text" id="i-amenities" placeholder="Wi-Fi, Piscina, Ar-condicionado"></div>
+          <div class="field"><label for="i-fotos">URLs de fotos (uma por linha)</label>
+            <textarea id="i-fotos" rows="3" placeholder="https://..."></textarea></div>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <button class="btn" type="submit">Salvar</button>
+            <button class="btn btn-outline" type="button" id="cancelar">Cancelar</button>
+          </div>
+          <div class="msg hidden" id="aviso"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/painel.js"></script>
+</body>
+</html>
