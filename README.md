@@ -1,6 +1,6 @@
-# Commit Places — MVP estilo Airbnb
+# Commit Places — MVP mimetiznado o Airbnb
 
-Projeto do Capítulo 2 (backend em Django REST) e Capítulo 3 (frontend em HTML, CSS e JS puro).
+Projeto do Capítulo 2 (backend em Django REST) e Capítulo 3 (frontend em HTML, CSS e JS).
 
 Anfitriões cadastram imóveis; hóspedes pesquisam, informam as datas de entrada e saída
 e solicitam a reserva; o anfitrião aprova ou recusa cada pedido.
@@ -19,7 +19,7 @@ airbnb_clone/
 
 ## Como rodar
 
-### Opção 1 — Docker (PostgreSQL, tudo pronto)
+### Docker (PostgreSQL)
 
 ```bash
 docker compose up --build
