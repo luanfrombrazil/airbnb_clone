@@ -1,12 +1,11 @@
-from django.urls import path, include
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from .views import PropertyViewSet, ReservationViewSet, PropertyImageViewSet
+
+from .views import PropertyImageViewSet, PropertyViewSet, ReservationViewSet
 
 router = DefaultRouter()
-router.register(r'properties', PropertyViewSet, basename='property')
-router.register(r'reservations', ReservationViewSet, basename='reservation')
-router.register(r'images', PropertyImageViewSet, basename='propertyimage')
+router.register(r"properties", PropertyViewSet, basename="property")
+router.register(r"property-images", PropertyImageViewSet)
+router.register(r"reservations", ReservationViewSet, basename="reservation")
 
-urlpatterns = [
-    path('', include(router.urls)),
-]
+urlpatterns = [path("", include(router.urls))]
