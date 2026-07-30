@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   db:
     image: postgres:15
@@ -8,14 +7,39 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d airbnb_db"]
+      interval: 5s
+      retries: 10
+
   web:
     build: ./backend
-    command: python manage.py runserver 0.0.0.0:8000
+    # espera o banco, aplica as migrações e popula os dados de exemplo
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py seed &&
+             python manage.py runserver 0.0.0.0:8000"
+    environment:
+      POSTGRES_DB: airbnb_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
     volumes:
       - ./backend:/app
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+
+  frontend:
+    image: nginx:alpine
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    ports:
+      - "5500:80"
+    depends_on:
+      - web
+
 volumes:
   postgres_data:
