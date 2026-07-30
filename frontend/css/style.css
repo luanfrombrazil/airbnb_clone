@@ -1,0 +1,202 @@
+:root {
+  --primary: #2b4acb;        /* azul royal */
+  --primary-dark: #1f37a0;
+  --text: #222;
+  --muted: #717171;
+  --border: #ddd;
+  --bg: #fff;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Cabeçalho ---------- */
+header {
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.logo {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 22px;
+  white-space: nowrap;
+}
+nav { display: flex; align-items: center; gap: 18px; font-size: 15px; }
+nav a:hover { color: var(--primary); }
+
+/* ---------- Botões ---------- */
+.btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn:hover { background: var(--primary-dark); }
+.btn:disabled { background: #ccc; cursor: not-allowed; }
+.btn-outline {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { background: #f7f7f7; }
+.btn-sm { padding: 6px 12px; font-size: 14px; }
+.btn-green { background: #2e7d32; }
+.btn-green:hover { background: #256428; }
+.btn-gray { background: #757575; }
+.btn-gray:hover { background: #616161; }
+
+/* ---------- Busca ---------- */
+.search {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  align-items: end;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin: 24px 0;
+}
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font-size: 12px; font-weight: 600; color: var(--muted); }
+input, select, textarea {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  background: #fff;
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+/* ---------- Grade de imóveis ---------- */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.card { cursor: pointer; }
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: #eee;
+}
+.card h3 { font-size: 16px; margin-top: 10px; }
+.card .muted { color: var(--muted); font-size: 14px; }
+.card .price { margin-top: 4px; font-size: 15px; }
+.card .price strong { font-weight: 600; }
+.rating { float: right; font-size: 14px; }
+
+.hidden { display: none !important; }
+
+/* ---------- Detalhe do imóvel ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+  margin: 20px 0;
+}
+.gallery img { height: 340px; object-fit: cover; border-radius: var(--radius); }
+.gallery .thumbs { display: grid; gap: 8px; }
+.gallery .thumbs img { height: 166px; }
+.detail { display: grid; grid-template-columns: 1fr 340px; gap: 40px; }
+.amenities { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tag {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 14px;
+}
+.box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+  position: sticky;
+  top: 90px;
+}
+.box .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  margin-top: 14px;
+  padding-top: 14px;
+  font-weight: 600;
+}
+
+/* ---------- Tabelas dos painéis ---------- */
+table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--border); font-size: 15px; }
+th { font-size: 13px; color: var(--muted); text-transform: uppercase; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.badge.PENDING { background: #fff3cd; color: #8a6100; }
+.badge.APPROVED { background: #d8f2dc; color: #1b5e20; }
+.badge.REJECTED { background: #fbdcdc; color: #a52121; }
+
+/* ---------- Formulários / avisos ---------- */
+.form-narrow { max-width: 420px; margin: 50px auto; }
+.form-narrow .field { margin-bottom: 14px; }
+.tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.tabs button { flex: 1; }
+.msg { padding: 12px 14px; border-radius: 8px; margin: 14px 0; font-size: 14px; }
+.msg.error { background: #fbdcdc; color: #a52121; }
+.msg.ok { background: #d8f2dc; color: #1b5e20; }
+.empty { color: var(--muted); padding: 40px 0; text-align: center; }
+h1 { font-size: 28px; margin-bottom: 6px; }
+h2 { font-size: 20px; margin: 24px 0 10px; }
+.checkbox { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.checkbox input { width: auto; }
+
+@media (max-width: 780px) {
+  .detail, .gallery { grid-template-columns: 1fr; }
+  .box { position: static; }
+  .gallery .thumbs { grid-template-columns: 1fr 1fr; }
+}
