@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commit Places — encontre onde ficar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">commit places</a>
+      <nav id="nav"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Barra de pesquisa com filtros avançados -->
+    <form class="search" id="busca">
+      <div class="field">
+        <label for="city">Cidade</label>
+        <input type="text" id="city" placeholder="Para onde vamos?">
+      </div>
+      <div class="field">
+        <label for="check_in">Entrada</label>
+        <input type="date" id="check_in">
+      </div>
+      <div class="field">
+        <label for="check_out">Saída</label>
+        <input type="date" id="check_out">
+      </div>
+      <div class="field">
+        <label for="min_price">Preço mín.</label>
+        <input type="number" id="min_price" min="0" placeholder="R$">
+      </div>
+      <div class="field">
+        <label for="max_price">Preço máx.</label>
+        <input type="number" id="max_price" min="0" placeholder="R$">
+      </div>
+      <div class="field">
+        <button class="btn" type="submit">Pesquisar</button>
+      </div>
+    </form>
+
+    <h1 id="titulo" style="margin-bottom:16px">Imóveis em destaque</h1>
+
+    <div class="grid" id="lista"></div>
+    <p class="empty hidden" id="vazio">Nenhum imóvel encontrado com esses filtros.</p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>
