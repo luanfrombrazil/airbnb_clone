@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — Commit Places</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">commit places</a>
+      <nav id="nav"></nav>
+    </div>
+  </header>
+
+  <main class="container form-narrow">
+    <div class="tabs">
+      <button class="btn" id="tab-login">Entrar</button>
+      <button class="btn btn-outline" id="tab-cadastro">Criar conta</button>
+    </div>
+
+    <!-- Login -->
+    <form id="form-login">
+      <div class="field">
+        <label for="l-user">Usuário</label>
+        <input type="text" id="l-user" required>
+      </div>
+      <div class="field">
+        <label for="l-senha">Senha</label>
+        <input type="password" id="l-senha" required>
+      </div>
+      <button class="btn" style="width:100%">Entrar</button>
+    </form>
+
+    <!-- Cadastro -->
+    <form id="form-cadastro" class="hidden">
+      <div class="field">
+        <label for="c-nome">Nome</label>
+        <input type="text" id="c-nome" required>
+      </div>
+      <div class="field">
+        <label for="c-user">Usuário</label>
+        <input type="text" id="c-user" required>
+      </div>
+      <div class="field">
+        <label for="c-email">E-mail</label>
+        <input type="email" id="c-email" required>
+      </div>
+      <div class="field">
+        <label for="c-senha">Senha (mínimo 6 caracteres)</label>
+        <input type="password" id="c-senha" minlength="6" required>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="c-host">
+        Quero anunciar imóveis (conta de anfitrião)
+      </label>
+      <button class="btn" style="width:100%;margin-top:16px">Criar conta</button>
+    </form>
+
+    <div class="msg hidden" id="aviso"></div>
+    <p class="muted" style="margin-top:20px;font-size:14px">
+      Contas de teste: <code>kaiser / senha123</code> (anfitrião) e <code>luan / senha123</code> (hóspede)
+    </p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
